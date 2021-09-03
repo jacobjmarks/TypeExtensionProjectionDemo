@@ -8,14 +8,6 @@ public class MyEntity
 }
 ```
 
-`/MyEntity.cs`
-``` csharp
-public class MyEntity
-{
-    public int Id { get; set; }
-}
-```
-
 `/MyEntityTypeExtension.cs`
 ``` csharp
 [ExtendObjectType(typeof(MyEntity))]
