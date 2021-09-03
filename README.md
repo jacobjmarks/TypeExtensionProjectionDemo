@@ -1,4 +1,4 @@
-# Stub application for [Issue 4133](https://github.com/ChilliCream/hotchocolate/issues/4133)
+# Stub application for [Issue 4183](https://github.com/ChilliCream/hotchocolate/issues/4183)
 
 `/MyEntity.cs`
 ``` csharp
