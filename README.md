@@ -16,6 +16,15 @@ public class MyEntity
 }
 ```
 
+`/MyEntityTypeExtension.cs`
+``` csharp
+[ExtendObjectType(typeof(MyEntity))]
+public class MyEntityTypeExtension
+{
+    public IEnumerable<string> GetMyList() => new List<string> { "foo", "bar" };
+}
+```
+
 `/MyDbContext.cs`
 ``` csharp
 public class MyDbContext : DbContext
