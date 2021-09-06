@@ -3,23 +3,15 @@ using TypeExtensionProjectionDemo;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.ConfigureServices((webHost, services) =>
-{
-    services.AddPooledDbContextFactory<MyDbContext>(builder =>
-    {
-        builder.UseInMemoryDatabase(databaseName: "MyDatabase");
-    });
+builder.Services.AddPooledDbContextFactory<MyDbContext>(b => b.UseInMemoryDatabase(databaseName: "MyDatabase"));
 
-    services.AddGraphQLServer()
-        .AddQueryType<Query>()
-        .AddTypeExtension<MyEntityTypeExtension>()
-        .AddProjections();
-});
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddTypeExtension<MyEntityTypeExtension>()
+    .AddProjections();
 
 var app = builder.Build();
 
-app.UseRouting();
-
-app.UseEndpoints(e => e.MapGraphQL());
+app.MapGraphQL();
 
 app.Run();
